@@ -16,6 +16,12 @@ const getroutine = async(req , res ) => {
 const postroutines = async(req , res ) => {
     const {name , body , duration } = req.body;
     const data = {name , body , duration}
+
+    const emptyfields = Object.keys(data).filter(field => !data[field]);
+    if (emptyfields.length > 0) {
+      return res.status(400).json({ error: 'Please fill in all fields', emptyfields });
+    }
+
     await routineschema.create(data)
         .then((result) => {
             res.status(200).json(result)

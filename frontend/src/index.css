@@ -6,6 +6,10 @@
   font-family: 'Arial', sans-serif;
 }
 
+:root {
+  --error: #e7195a;
+}
+
 /* Body and Background */
 body {
   background: linear-gradient(135deg, #ff7f50, #ff1493);
@@ -85,7 +89,7 @@ a {
   line-height: 1.5;
 }
 
-.routines button {
+.routines img {
   background-color: #ff4747; /* Red background for the delete button */
   color: white; /* White text color */
   border: none; /* Remove default border */
@@ -99,11 +103,11 @@ a {
   opacity: 0;
 }
 
-.routines:hover button {
+.routines:hover img {
   opacity: 1;
 }
 
-.routines button:hover {
+.routines img:hover {
   background-color: #e03e3e; /* Darker red when hovered */
   transform: scale(1.05); /* Slightly enlarge the button on hover */
 }
@@ -180,6 +184,14 @@ a {
   transform: translateY(1px); /* Button clicks give slight push */
 }
 
+div.error {
+  padding: 10px;
+  background: #f30101;
+  border: 1px solid var(--error);
+  color:#ffefef;
+  border-radius: 4px;
+  margin: 20px 0;
+}
 /* Responsive Styling */
 @media (max-width: 768px) {
   .home {

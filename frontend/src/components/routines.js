@@ -1,4 +1,5 @@
 import { Useroutinecontext } from "../hooks/useroutinecontext"
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
 const Routines = ({routine}) => {
     const {dispatch} = Useroutinecontext()
@@ -16,8 +17,8 @@ const Routines = ({routine}) => {
             <h4>{routine.name}</h4>
             <p><strong>Description :</strong>{routine.body}</p>
             <p><strong>Duration :</strong> {routine.duration}</p>
-            <p>created at : {routine.createdAt}</p>
-            <button onClick={handledelete}>delete</button>
+            <p>{formatDistanceToNow(new Date(routine.createdAt), { addSuffix: true })}</p>
+            <img src="/deleteicon.svg" onClick={handledelete} />
         </div>
      );
 }
