@@ -12,19 +12,23 @@ export const Routinereducer = (state, action) => {
       return { 
         routines: [action.payload, ...state.routines] 
       }
+    case 'Delete-routine':
+      return{
+        routines: state.routines.filter((routine) => routine._id !== action.payload._id)
+      }
     default:
       return state
   }
 }
 
-export const RoutineContextProvider = ({ child }) => {
+export const RoutineContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(Routinereducer, { 
     routines: null
   })
   
   return (
     <Routinecontext.Provider value={{ ...state, dispatch }}>
-      { child }
+      { children }
     </Routinecontext.Provider>
   )
 }

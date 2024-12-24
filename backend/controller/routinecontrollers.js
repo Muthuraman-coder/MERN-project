@@ -6,8 +6,8 @@ const getroutines = async(req , res ) => {
 }
 
 const getroutine = async(req , res ) => {
-    const id = req.params
-    await routineschema.findById({_id : id})
+    const {id }= req.params
+    await routineschema.findById(id)
         .then((result) => {
             res.status(200).json(result)
         })
@@ -23,7 +23,7 @@ const postroutines = async(req , res ) => {
 }
 
 const deleteroutine = async(req , res ) => {
-   const id = req.params
+   const {id} = req.params
    await routineschema.findOneAndDelete({_id : id})
         .then((result) => {
             res.status(200).json(result)
@@ -31,7 +31,7 @@ const deleteroutine = async(req , res ) => {
 }
 
 const updateroutine = async(req , res ) => {
-   const id = req.params
+   const {id} = req.params
    await routineschema.findOneAndUpdate({_id : id } , { ...req.body})
         .then((result) => {
             res.status(200).json(result)

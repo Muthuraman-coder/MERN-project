@@ -67,6 +67,7 @@ a {
   border-radius: 8px;
   margin-bottom: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
 }
 
 .routines:hover {
@@ -84,6 +85,28 @@ a {
   line-height: 1.5;
 }
 
+.routines button {
+  background-color: #ff4747; /* Red background for the delete button */
+  color: white; /* White text color */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners for the button */
+  padding: 10px 15px; /* Padding inside the button */
+  cursor: pointer; /* Pointer cursor to indicate it's clickable */
+  font-size: 1rem; /* Button text size */
+  position: absolute;
+  top: 10px; /* Place the button 10px from the top */
+  right: 10px; /* Place the button 10px from the right */
+  opacity: 0;
+}
+
+.routines:hover button {
+  opacity: 1;
+}
+
+.routines button:hover {
+  background-color: #e03e3e; /* Darker red when hovered */
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
 
 /* Form Styling */
 .page-form {

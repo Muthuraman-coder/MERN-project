@@ -10,11 +10,11 @@ const Routineform = () => {
     const handleadd = async (e) => {
         e.preventDefault()
 
-        const routine = {name , body , duration}
+        const routines = {name , body , duration}
 
         const res = await fetch('/api/routines/' , {
             method : 'POST',
-            body : JSON.stringify(routine),
+            body : JSON.stringify(routines),
             headers: {
                 'Content-Type': 'application/json'
               }
