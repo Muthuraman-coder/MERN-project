@@ -41,6 +41,60 @@ header {
   text-transform: uppercase;
 }
 
+/* Logout Section Styling */
+.logout {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  position: absolute; /* Fix it within the header */
+  top: 50%; /* Vertically center it */
+  transform: translateY(-50%); /* Correct vertical alignment */
+  right: 20px; /* Right-aligned */
+}
+
+.logout span {
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.logout button {
+  background-color: #ff1493;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.logout button:hover {
+  background-color: #ff7f50;
+  transform: translateY(-3px); /* Slight lift on hover */
+}
+
+.logout button:active {
+  transform: translateY(1px); /* Button clicks give slight push */
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .logout {
+    position: relative;
+    justify-content: center; /* Center logout section on smaller screens */
+    margin-top: 20px;
+  }
+
+  .logout span {
+    margin-right: 10px;
+  }
+
+  .logout button {
+    width: 100%;
+  }
+}
+
 /* Link Styling */
 a {
   text-decoration: none;
@@ -192,6 +246,78 @@ div.error {
   border-radius: 4px;
   margin: 20px 0;
 }
+
+/* Sign In Form */
+.sigup {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  margin: 60px auto 0; /* Center the form vertically and horizontally */
+}
+
+.sigup label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.sigup input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  font-size: 1rem;
+  color: #333;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, background-color 0.3s ease; /* Input transition */
+}
+
+.sigup input:focus {
+  outline: none;
+  border-color: #ff1493;
+  background-color: #fff;
+}
+
+.sigup button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff1493;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.sigup button:hover {
+  background-color: #ff7f50;
+  transform: translateY(-3px); /* Slight lift on hover */
+}
+
+.sigup p {
+  margin-top: 10px;
+  text-align: center;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.sigup a {
+  color: #ff1493;
+  text-decoration: none;
+}
+
+.sigup a:hover {
+  text-decoration: underline;
+}
+
 /* Responsive Styling */
 @media (max-width: 768px) {
   .home {
@@ -212,6 +338,13 @@ div.error {
   }
 
   .routines {
+    width: 90%;
+  }
+
+  /* Adjust Sign In Form */
+  .sigup {
+    margin-top: 20px;
+    padding: 15px;
     width: 90%;
   }
 }

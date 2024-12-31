@@ -3,6 +3,7 @@ require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const dailyroutines = require('./routes/dailyroutine')
+const signroutes = require('./routes/signroutes')
 
 const app = express()
 
@@ -13,6 +14,7 @@ app.use((req, res, next) => {
 })
 
 app.use('/api/routines' , dailyroutines)
+app.use('/api/sign' , signroutes )
 
 mongoose.connect(process.env.mdb)
  .then(() => {

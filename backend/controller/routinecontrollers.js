@@ -1,7 +1,10 @@
 const routineschema = require('../Schema/routineschema')
 
 const getroutines = async(req , res ) => {
-   const routines = await routineschema.find().sort({createdAt : -1}) 
+
+    const user_id = req.user._id
+
+    const routines = await routineschema.find( user_id).sort({createdAt : -1}) 
             res.status(200).json(routines)
 }
 
@@ -22,10 +25,13 @@ const postroutines = async(req , res ) => {
       return res.status(400).json({ error: 'Please fill in all fields', emptyfields });
     }
 
-    await routineschema.create(data)
-        .then((result) => {
-            res.status(200).json(result)
-        })
+    try{
+        const user_id = req.user._id
+        const rountine =  await routineschema.create({name , body , duration , user_id})
+        res.json(rountine)
+    }catch(error){
+        res.json({error: error.message})
+    }
 }
 
 const deleteroutine = async(req , res ) => {
@@ -44,4 +50,4 @@ const updateroutine = async(req , res ) => {
         })
 }
 
-module.exports = {getroutines , getroutine , postroutines , deleteroutine , updateroutine}
+module.exports = {getroutines , getroutine , postroutines , deleteroutine , updateroutine }
